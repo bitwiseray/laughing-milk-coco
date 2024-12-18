@@ -1,0 +1,296 @@
+*::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --black-color: #0e1111;
+    --white-color: #FAF9F6;
+    --pink-color: #F49097;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--white-color);
+}
+
+header nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+header nav.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+header .logo {
+    font-size: 21.5px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+header .logo:hover {
+    color: var(--pink-color);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 2.1rem;
+}
+
+header ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: var(--black-color);
+    font-size: 18px;
+    transition: 0.4s ease;
+}
+
+header ul li a:hover {
+    color: var(--pink-color);
+    letter-spacing: 4px;
+}
+
+header .heart {
+    transition: 1s ease;
+    cursor: pointer;
+}
+
+header .heart:hover {
+    color: rgb(255, 84, 113);
+}
+
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.text-box {
+    width: 69%;
+    left: 1%;
+    text-align: left;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    line-height: 0.9;
+    align-items: flex-start;
+}
+
+.text-box span {
+    font-size: 275px;
+    color: var(--black-color);
+    margin: 0;
+}
+
+.text-box .outline {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 4px var(--black-color);
+}
+
+.text-box::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 15px;
+    width: 0;
+    height: 5px;
+    border-radius: 3.5px;
+    background-color: var(--pink-color); /* Change color as needed */
+    transition: width 0.3s ease-in-out;
+}
+
+.text-box:hover::after {
+    width: 100%;
+}
+
+/* Add the animation keyframes */
+@keyframes randomFill {
+    0%, 100% {
+        background-color: var(--black-color);
+        border: none;
+    }
+    50% {
+        background-color: white;
+        border: 1px solid var(--black-color);
+    }
+}
+
+@keyframes randomFillAlt {
+    0%, 100% {
+        background-color: white;
+        border: 1px solid black;
+    }
+    50% {
+        background-color: black;
+        border: none;
+    }
+}
+
+/* Dots container styling */
+.dots-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    right: 26px;
+}
+
+.dot {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: var(--black-color);
+    margin: 5px 10px;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+/* Dot-specific animations with delays */
+.dot-1 {
+    animation-name: randomFill;
+    animation-delay: 0s;
+}
+
+.dot-2 {
+    animation-name: randomFillAlt;
+    animation-delay: 0.5s;
+}
+
+.dot-3 {
+    animation-name: randomFill;
+    animation-delay: 1s;
+}
+
+
+.about {
+    background-color: var(--black-color);
+}
+
+/* Section Styles */
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Section Styling: About */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    position: relative;
+}
+
+.about-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Hearts Image */
+.main-hearts {
+    position: absolute;
+    width: 33%;
+    right: 68%;
+    height: auto;
+}
+
+/* Text Box */
+.about-text-box {
+    max-width: 723px;
+    text-align: right;
+    position: relative;
+    right: -61%;
+    padding-right: 39px;
+    color: var(--white-color);
+    border-right: 3px solid var(--white-color);
+}
+
+.about-text-box .title {
+    font-size: 90px;
+    font-weight: 400;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-bottom: -13px;
+    display: inline-block;
+}
+
+.about-text-box .about-para {
+    font-size: 20px;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* Heart Buttons (if needed) */
+.heart-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.heart-buttons span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.heart-buttons span:hover {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    header ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
