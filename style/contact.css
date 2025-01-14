@@ -1,0 +1,103 @@
+.card-box {
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 500px); /* Ensure rows fit card height */
+    gap: 50px;
+    height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+
+.contact { background-color: var(--black-color); }
+
+/* From Uiverse.io by joe-watson-sbf */
+.flip-card {
+    width: 350px;
+    height: 450px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.flip-card .title {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    top: -55px;
+    color: var(--pink-color);
+}
+
+.flip-card .icon-media {
+    width: 200px;
+    position: relative;
+    margin: auto;
+}
+
+.icon-media .discord { width: 100px; }
+.icon-media .x { width: 5px; }
+.icon-media .instagram { width: 98px; }
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-pfp {
+    width: 180px;
+    /* object-fit: contain; */
+    border-radius: 50%;
+    position: relative;
+}
+
+.social-card-name {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.social-card-username {
+    color: rgb(107, 107, 107);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+}
+
+.flip-card-front {
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    background: var(--white-color);
+    color: var(--black-color);
+    padding: 8px;
+    transform: rotateY(180deg);
+}
