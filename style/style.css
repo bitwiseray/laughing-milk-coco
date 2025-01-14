@@ -234,10 +234,10 @@ section {
 
 /* Text Box */
 .about-text-box {
-    max-width: 723px;
+    max-width: 800px;
     text-align: right;
     position: relative;
-    right: -61%;
+    right: -49.5%;
     padding-right: 39px;
     color: var(--white-color);
     border-right: 3px solid var(--white-color);
