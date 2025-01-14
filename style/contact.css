@@ -36,7 +36,7 @@
 
 .contact { background-color: var(--black-color); }
 
-/* From Uiverse.io by joe-watson-sbf */
+/* Base card desgin taken from Uiverse.io by joe-watson-sbf; however heavy changes were made */
 .flip-card {
     width: 350px;
     height: 450px;
@@ -52,7 +52,7 @@
     top: -70px;
     color: var(--black-color);
     transition: 0.4s;
-    transition-delay: 0.4s; /* Add delay here */
+    transition-delay: 0.4s;
 }
 
 .flip-card:hover .title {
