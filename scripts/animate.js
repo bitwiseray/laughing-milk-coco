@@ -5,6 +5,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const originalCards = Array.from(document.querySelectorAll('.flip-card'));
     let isPaused = false;
     let scrollInterval;
+    let isManuallyScrolling = false;
+    let manualScrollTimeout;
     function duplicateCards() {
         for (let i = 0; i < 2; i++) {
             originalCards.forEach(card => {
@@ -22,18 +24,21 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
     function centerCard(card) {
-        const containerHeight = container.clientHeight;
-        const cardHeight = card.offsetHeight;
-        const cardOffsetTop = card.offsetTop;
-        const scrollTo = cardOffsetTop - (containerHeight / 2) + (cardHeight / 2);
-        container.scrollTo({
-            top: scrollTo,
-            behavior: 'smooth'
-        });
+        // Only center if not manually scrolling
+        if (!isManuallyScrolling) {
+            const containerHeight = container.clientHeight;
+            const cardHeight = card.offsetHeight;
+            const cardOffsetTop = card.offsetTop;
+            const scrollTo = cardOffsetTop - (containerHeight / 2) + (cardHeight / 2);
+            container.scrollTo({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
+        }
     }
     function startScroll() {
         scrollInterval = setInterval(() => {
-            if (!isPaused) {
+            if (!isPaused && !isManuallyScrolling) {
                 if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
                     container.scrollTop = 0;
                 } else {
@@ -42,29 +47,44 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }, 30);
     }
+    // Detect manual scrolling
+    container.addEventListener('wheel', () => {
+        isManuallyScrolling = true;
+        isPaused = true;
+        if (manualScrollTimeout) {
+            clearTimeout(manualScrollTimeout);
+        }
+        manualScrollTimeout = setTimeout(() => {
+            isManuallyScrolling = false;
+            if (!container.matches(':hover')) {
+                isPaused = false;
+            }
+        }, 100);
+    });
     container.addEventListener('mouseenter', () => {
         isPaused = true;
         deleteClones();
     });
-
     container.addEventListener('mouseleave', () => {
-        isPaused = false;
-        duplicateCards();
+        if (!isManuallyScrolling) {
+            isPaused = false;
+            duplicateCards();
+        }
     });
-
-    // // Center a card when hovered
-    // container.addEventListener('mouseover', (event) => {
-    //     if (event.target.closest('.flip-card')) {
-    //         centerCard(event.target.closest('.flip-card'));
-    //     }
-    // });
+    container.addEventListener('mouseover', (event) => {
+        if (event.target.closest('.flip-card') && !isManuallyScrolling) {
+            centerCard(event.target.closest('.flip-card'));
+        }
+    });
     window.addEventListener('beforeunload', () => {
         clearInterval(scrollInterval);
+        if (manualScrollTimeout) {
+            clearTimeout(manualScrollTimeout);
+        }
     });
     duplicateCards();
     startScroll();
 });
-
 
 let prevScrollPos = window.scrollY;
 window.addEventListener('scroll', () => {
