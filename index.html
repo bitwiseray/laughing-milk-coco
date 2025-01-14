@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/contact.css">
     <link rel="stylesheet" href="./style/animations.css">
+    <link rel="stylesheet" href="./style/prompt.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -24,6 +25,17 @@
 </head>
 
 <body>
+    <div class="mobile-prompt">
+        <img src="./assets/no.png" alt="Anime girl saying no">
+        <p class="prompt-text">
+            <span class="mobile-prompt-title">Oops! Looks like you're sneaking in on a tiny screen.</span><br>
+            This site was designed to shine brightest on a big, gorgeous PC display. <br>
+            Still curious and no big screen at the moment? <br>Click the button below to get a glimpse!
+        </p>
+        <button class="desktop-view-btn" onclick="window.open(location.href, '_blank', 'desktop')">
+            Open in Desktop View
+        </button>
+    </div>
     <header>
         <nav class="slide-bottom">
             <div class="logo">RAY</div>
