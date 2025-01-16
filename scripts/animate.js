@@ -61,10 +61,10 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }, 100);
     });
-    container.addEventListener('mouseenter', () => {
-        isPaused = true;
-        deleteClones();
-    });
+    // container.addEventListener('mouseenter', () => {
+    //     isPaused = true;
+    //     deleteClones();
+    // });
     container.addEventListener('mouseleave', () => {
         if (!isManuallyScrolling) {
             isPaused = false;
@@ -73,6 +73,8 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     container.addEventListener('mouseover', (event) => {
         if (event.target.closest('.flip-card') && !isManuallyScrolling) {
+            isPaused = true;
+            deleteClones();
             centerCard(event.target.closest('.flip-card'));
         }
     });
