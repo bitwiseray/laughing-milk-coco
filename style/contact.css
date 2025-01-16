@@ -50,9 +50,9 @@
     text-transform: uppercase;
     font-size: 17.5px;
     top: -70px;
-    color: var(--black-color);
+    color: var(--white-color);
     transition: 0.4s;
-    transition-delay: 0.4s;
+    transition-delay: 0.35s;
 }
 
 .flip-card:hover .title {
@@ -131,8 +131,13 @@
 }
 
 .flip-card-back {
-    background: var(--white-color);
-    color: var(--black-color);
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white-color);
     padding: 8px;
     transform: rotateY(180deg);
 }

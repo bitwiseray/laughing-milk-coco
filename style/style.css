@@ -130,6 +130,11 @@ header .heart:hover {
     width: 100%;
 }
 
+#change-hero-text { 
+    font-size: 170px;
+    font-family: 'Coming Soon';
+}
+
 /* Add the animation keyframes */
 @keyframes randomFill {
     0%, 100% {
@@ -233,7 +238,7 @@ section {
 
 /* Text Box */
 .about-text-box {
-    max-width: 800px;
+    max-width: 805px;
     text-align: right;
     position: relative;
     right: -49.5%;
