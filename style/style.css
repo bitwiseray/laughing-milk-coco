@@ -14,7 +14,7 @@
 :root {
     --black-color: #0e1111;
     --white-color: #FAF9F6;
-    --pink-color: #F49097;
+    --pink-color: #ff234b;
 }
 
 body {
@@ -80,7 +80,6 @@ header .heart {
 header .heart:hover {
     color: rgb(255, 84, 113);
 }
-
 
 /* Hero Section */
 .hero {
