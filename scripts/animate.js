@@ -100,3 +100,9 @@ window.addEventListener('scroll', () => {
     }
     prevScrollPos = currentScrollPos;
 });
+
+
+setTimeout(() => {
+    const text = document.querySelector('.hero-mn-text');
+    text.style.opacity = 1;
+}, 6200)
