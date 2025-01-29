@@ -103,6 +103,10 @@ header .heart:hover {
     align-items: flex-start;
 }
 
+.hero-text-body {
+    display: flex;
+}
+
 .text-box span {
     font-size: 275px;
     color: var(--black-color);
@@ -130,9 +134,29 @@ header .heart:hover {
     width: 100%;
 }
 
-#change-hero-text { 
-    font-size: 170px;
-    font-family: 'Coming Soon';
+.words span {
+    display: block;
+    font-size: 275px;
+    padding: 17px 5px;
+    animation: slide-text 6s forwards;
+    animation-delay: 0.7s;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 3.5px var(--black-color);
+}
+
+.words {
+    overflow: hidden;
+    position: relative;
+    top: -18px;
+    height: 256px;
+}
+
+.hero-mn-text {
+    position: absolute;
+    left: 498px;
+    /* visibility: hidden; */
+    opacity: 0;
+    transition: 0.7s ease;
 }
 
 /* Add the animation keyframes */
