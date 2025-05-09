@@ -14,12 +14,22 @@
 :root {
     --black-color: #0e1111;
     --white-color: #FAF9F6;
-    --pink-color: #ff234b;
+    --pink-color: #FF94A8;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--white-color);
+}
+
+.para-text-fn {
+    font-family: 'Poppins', sans-serif;
+}
+
+.head-text-fn {
+    font-family: 'Comic Neue';
+    letter-spacing: 3.5px;
+    font-weight: 400;
 }
 
 header nav {
@@ -216,33 +226,22 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
 }
 
-/* Hearts Image */
-.main-hearts {
-    position: absolute;
-    width: 33%;
-    right: 68%;
-    height: auto;
-}
-
-/* Text Box */
 .about-text-box {
     max-width: 805px;
-    text-align: right;
+    text-align: left;
     position: relative;
-    right: -49.5%;
-    padding-right: 39px;
+    right: 50%;
+    padding-left: 39px;
+    padding-bottom: 20px;
+    /* padding-top: 10px; */
     color: var(--white-color);
-    border-right: 3px solid var(--white-color);
+    border-left: 3px solid var(--white-color);
 }
 
 .about-text-box .title {
-    font-size: 90px;
-    font-weight: 400;
-    letter-spacing: 3.5px;
-    text-transform: uppercase;
+    font-size: 100px;
     margin-bottom: 10px;
     display: inline-block;
 }
