@@ -113,25 +113,9 @@ header .heart:hover {
     margin: 0;
 }
 
-.text-box .outline {
-    -webkit-text-fill-color: white;
+.outline {
+    -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 4px var(--black-color);
-}
-
-.text-box::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 15px;
-    width: 0;
-    height: 5px;
-    border-radius: 3.5px;
-    background-color: var(--pink-color); /* Change color as needed */
-    transition: width 0.3s ease-in-out;
-}
-
-.text-box:hover::after {
-    width: 100%;
 }
 
 .words span {
@@ -139,9 +123,7 @@ header .heart:hover {
     font-size: 275px;
     padding: 17px 5px;
     animation: slide-text 6s forwards;
-    animation-delay: 0.7s;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 3.5px var(--black-color);
+    animation-delay: 2s;
 }
 
 .words {
@@ -154,21 +136,8 @@ header .heart:hover {
 .hero-mn-text {
     position: absolute;
     left: 498px;
-    /* visibility: hidden; */
     opacity: 0;
     transition: 0.7s ease;
-}
-
-/* Add the animation keyframes */
-@keyframes randomFill {
-    0%, 100% {
-        background-color: var(--black-color);
-        border: none;
-    }
-    50% {
-        background-color: white;
-        border: 1px solid var(--black-color);
-    }
 }
 
 @keyframes randomFillAlt {
@@ -308,17 +277,4 @@ section {
 .heart-buttons span:hover {
     background-color: #fff;
     transform: scale(1.2);
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 4rem;
-    }
-
-    header ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
 }
