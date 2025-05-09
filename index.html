@@ -22,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=local_cafe" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
 </head>
 
 <body>
@@ -52,7 +54,7 @@
             <span class="hero-body-text outline">HELLO</span>
             <div class="hero-text-body">
                 <span>I</span>
-                <div class="words">
+                <div class="words outline">
                     <span>Cook</span>
                     <span>Write</span>
                     <span>Code</span>
@@ -171,5 +173,19 @@
         </div>
     </section>
     <script src="./scripts/animate.js"></script>
+    <script>
+        VANTA.TOPOLOGY({
+            el: "#hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color:  0xff234b,
+            backgroundColor: 0xffffff
+        });
+    </script>
 </body>
 </html>
