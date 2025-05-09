@@ -13,8 +13,12 @@ function initNavigation() {
 function initCardScroll() {
     const container = document.querySelector('.card-box');
     const originalCards = [...document.querySelectorAll('.flip-card')];
-    let isPaused = false, isManuallyScrolling = false, scrollInterval, manualScrollTimeout;
+    let isPaused = false,
+        isManuallyScrolling = false,
+        scrollInterval,
+        manualScrollTimeout;
 
+    // Clone your cards twice for seamless looping
     const duplicateCards = () => {
         for (let i = 0; i < 2; i++) {
             originalCards.forEach(card => {
@@ -23,41 +27,49 @@ function initCardScroll() {
         }
     };
 
+    // Remove the clones when you want to recenter
     const deleteClones = () => {
         const allCards = [...container.querySelectorAll('.flip-card')];
         allCards.slice(originalCards.length).forEach(card => card.remove());
     };
 
+    // Center a card horizontally
     const centerCard = card => {
         if (!isManuallyScrolling) {
-            const scrollTo = card.offsetTop - (container.clientHeight / 2) + (card.offsetHeight / 2);
-            container.scrollTo({ top: scrollTo, behavior: 'smooth' });
+            const scrollTo = card.offsetLeft
+                - (container.clientWidth / 2)
+                + (card.offsetWidth / 2);
+            container.scrollTo({ left: scrollTo, behavior: 'smooth' });
         }
     };
 
+    // Auto‑scroll to the right, reset to 0 when you hit the end
     const startScroll = () => {
         scrollInterval = setInterval(() => {
             if (!isPaused && !isManuallyScrolling) {
-                if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
-                    container.scrollTop = 0;
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                    container.scrollLeft = 0;
                 } else {
-                    container.scrollTop += 1;
+                    container.scrollLeft += 1;
                 }
             }
         }, 30);
     };
 
-    // Manual scroll detection
-    container.addEventListener('wheel', () => {
+    // Hijack wheel events for horizontal manual scroll
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();  // stop vertical scroll
         isPaused = true;
         isManuallyScrolling = true;
         clearTimeout(manualScrollTimeout);
+        container.scrollLeft += e.deltaY;  // scroll horizontally by the wheel’s delta
         manualScrollTimeout = setTimeout(() => {
             isManuallyScrolling = false;
             if (!container.matches(':hover')) isPaused = false;
         }, 100);
-    });
+    }, { passive: false });
 
+    // When the mouse leaves, resume auto‑scroll and re‑duplicate
     container.addEventListener('mouseleave', () => {
         if (!isManuallyScrolling) {
             isPaused = false;
@@ -65,6 +77,7 @@ function initCardScroll() {
         }
     });
 
+    // On hover over a card, pause, delete clones, and center that card
     container.addEventListener('mouseover', (e) => {
         const card = e.target.closest('.flip-card');
         if (card && !isManuallyScrolling) {
@@ -74,6 +87,7 @@ function initCardScroll() {
         }
     });
 
+    // Clean up on unload
     window.addEventListener('beforeunload', () => {
         clearInterval(scrollInterval);
         clearTimeout(manualScrollTimeout);
@@ -87,7 +101,7 @@ function revealHeroText() {
     setTimeout(() => {
         const text = document.querySelector('.hero-mn-text');
         if (text) text.style.opacity = 1;
-    }, 7000);
+    }, 7200);
 }
 
 function setupScrollHideNav() {

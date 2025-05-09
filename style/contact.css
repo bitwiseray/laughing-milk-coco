@@ -25,11 +25,13 @@
 
 .card-box {
     position: relative;
-    display: grid;
-    grid-template-rows: repeat(auto-fill, 510px);
+    display: flex; /* change grid to flex */
+    flex-direction: row; /* horizontal */
     gap: 50px;
     height: 510px;
-    overflow-y: auto;
+    width: 1000px;
+    overflow-x: auto; /* horizontal scroll */
+    overflow-y: hidden;
     padding: 10px;
     left: 35%;
 }
@@ -43,6 +45,7 @@
     perspective: 1000px;
     transform-style: preserve-3d;
     cursor: pointer;
+    flex: 0 0 auto; /* Ensure horizontal layout stays intact */
 }
 
 .flip-card .title {

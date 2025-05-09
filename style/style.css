@@ -101,6 +101,7 @@ header .heart:hover {
     position: absolute;
     line-height: 0.9;
     align-items: flex-start;
+    font-size: 275px;
 }
 
 .hero-text-body {
@@ -108,7 +109,6 @@ header .heart:hover {
 }
 
 .text-box span {
-    font-size: 275px;
     color: var(--black-color);
     margin: 0;
 }
@@ -120,9 +120,8 @@ header .heart:hover {
 
 .words span {
     display: block;
-    font-size: 275px;
     padding: 17px 5px;
-    animation: slide-text 6s forwards;
+    animation: slide-text 6.5s forwards;
     animation-delay: 2s;
 }
 
@@ -137,7 +136,7 @@ header .heart:hover {
     position: absolute;
     left: 498px;
     opacity: 0;
-    transition: 0.7s ease;
+    transition: 0.9s ease;
 }
 
 @keyframes randomFillAlt {
@@ -210,7 +209,6 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
     position: relative;
 }
 
@@ -245,7 +243,7 @@ section {
     font-weight: 400;
     letter-spacing: 3.5px;
     text-transform: uppercase;
-    margin-bottom: -13px;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
