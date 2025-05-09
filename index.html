@@ -17,27 +17,16 @@
     <link rel="stylesheet" href="./style/contact.css">
     <link rel="stylesheet" href="./style/animations.css">
     <link rel="stylesheet" href="./style/prompt.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=local_cafe" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
 </head>
 
 <body>
-    <div class="mobile-prompt">
-        <img src="./assets/no.png">
-        <p class="prompt-text">
-            <span class="mobile-prompt-title">Oops! Looks like you're sneaking in on a tiny screen.</span><br>
-            This site was designed to shine brightest on a big, gorgeous PC display. <br>
-            Still curious and no big screen at the moment? <br>Click the button below to get a glimpse!
-        </p>
-        <button class="desktop-view-btn" onclick="window.open(location.href, '_blank', 'desktop')">
-            Open in Desktop View
-        </button>
-    </div>
     <header>
         <nav class="slide-bottom">
             <div class="logo">RAY</div>
@@ -71,10 +60,10 @@
         </div>
     </section>
     <section class="about" id="about">
+        <div id="harc"></div>
         <div class="about-wrapper">
-            <img class="main-hearts" src="./assets/hearts.png" alt="Hearts" srcset="">
             <div class="about-text-box">
-                <span class="title">ABOUT MYSELF</span>
+                <span class="title head-text-fn">ABOUT MYSELF</span>
                 <p class="about-para">Hey there, curious soul! I'm Ray, a restless lad fueled by an insatiable love for learning and creating. <br>
                     My passions are as diverse as the cosmos, spanning, <br> Programming, ESP32/Arduino, Blender 3D, black holes, philosophy, and sci-fi.<br> <br>
                     When I’m not busy tinkering with ideas or crafting theories, you’ll find me indulging in movies and anime,<br> especially ones with mind-bending sci-fi or thrillers.<br> Got a recommendation for an unforgettable sci-fi gem or a gripping thriller? <br> <a href="#contact" style="color: var(--white-color);">Don’t hold back—tell me!</a>
@@ -89,7 +78,7 @@
     </section>
     <section class="contact" id="contact">
         <div class="contact-text-box">
-            <span>Contact Me!</span>
+            <span class="head-text-fn">Contact Me!</span>
             <p>If you have some professional thing to talk, <a style="color: var(--pink-color); text-decoration: none;" href="mailto:smirkingtoast@outlook.com">mail me</a>! <br>You can also check out my social media, I don't post much, <br> However if you have cool time theory or deep shower thoughts, DM me ;) </p>
         </div>
         <div class="card-box">
@@ -173,19 +162,6 @@
         </div>
     </section>
     <script src="./scripts/animate.js"></script>
-    <script>
-        VANTA.TOPOLOGY({
-            el: "#hero",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color:  0xff234b,
-            backgroundColor: 0xffffff
-        });
-    </script>
+    <script src="./scripts/grapy-list.js"></script>
 </body>
 </html>
