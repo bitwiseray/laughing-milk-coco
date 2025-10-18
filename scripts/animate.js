@@ -101,3 +101,13 @@ function setupScrollHideNav() {
         prevScrollPos = currentScrollPos;
     });
 }
+
+
+// Check if URL has ?forceWide=yes
+const urlParams = new URLSearchParams(window.location.search);
+const forceWide = urlParams.get('forceWide');
+
+if (!forceWide && /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // Redirect mobile users if not forcing wide view
+    window.location.href = "/go-away.html";
+}
